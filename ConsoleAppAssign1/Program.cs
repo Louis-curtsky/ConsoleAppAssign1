@@ -10,8 +10,10 @@ namespace ConsoleAppAssign1
             do
             {
                 PrintMenu();
+
                 int assignmentSel = int.Parse(Console.ReadLine() ?? "0");
-                if (assignmentSel < 9)
+
+                if (assignmentSel < 5)
                 {
                     MathOperation(assignmentSel);
                 }
@@ -24,15 +26,22 @@ namespace ConsoleAppAssign1
                 { 
                         Console.WriteLine("Invalid selection !!!");                
                 }
- 
+                Console.ResetColor();
                 Console.WriteLine("Press any key to continue !");
-                // key press hiden with (True)
+                // key press hidden with (True)
                 Console.ReadKey();
                 Console.Clear();
             } while (keepGoing);
         }// End of Main
 
-        // Menu selection 1:  Obtain 2 numbers from user and add together
+        /* 
+         * Math Operation. Obtain numbers from user
+         * 1:  Add two number
+         * 2:  Subtract second number from First number
+         * 3:  Multiply first and second number
+         * 4:  Divide first number by second number. Zero is checked in second
+        */
+
         static void MathOperation(int selection) 
         {
 
@@ -41,13 +50,26 @@ namespace ConsoleAppAssign1
             switch(selection)
             {
                 case 1:
-                    Console.WriteLine(firstnum + " + " + secondnum + " is = " + (firstnum + secondnum));
+                    Console.WriteLine(firstnum + " + " + secondnum + " is = " + Add2num(firstnum, secondnum));
                     break;
                 case 2:
-                    Console.WriteLine(firstnum + " - " + secondnum + " is = " + (firstnum - secondnum));
+                    Console.WriteLine(firstnum + " - " + secondnum + " is = " + Sub2num(firstnum, secondnum));
                     break;
-            } // End of MathOperation Switch
-
+                case 3:
+                    Console.WriteLine(firstnum + " * " + secondnum + " is = " + Mul2num(firstnum, secondnum));
+                    break;
+                case 4:
+                    if (secondnum > 0)
+                    {
+                        Console.WriteLine(firstnum + " / " + secondnum + " is = " + Div2num(firstnum, secondnum));
+                    } 
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("You are trying to divide by ZERO !!!");
+                    }
+                    break;
+            }
         }
 
         static int UserInputNumber(string what)
@@ -68,10 +90,34 @@ namespace ConsoleAppAssign1
             Console.WriteLine("----- Menu -----");
             Console.WriteLine("1: ADD Operation");
             Console.WriteLine("2: SUBTRACT Operation");
-            Console.WriteLine("3: xxxxx");
-            Console.WriteLine("4: xxxxx");
+            Console.WriteLine("3: MULTIPLICATION Operation");
+            Console.WriteLine("4: DIVISION Operation");
             Console.WriteLine("9: Exit program");
+            Console.WriteLine("\nEnter you choice: ");
         }
 
+        static int Add2num(int num1, int num2)
+        {
+            int tot = num1 + num2;
+            return tot;
+        }
+
+        static int Sub2num(int num1, int num2) 
+        {
+            int tot = num1 - num2;
+            return tot;
+        }
+
+        static int Mul2num(int num1, int num2) 
+        {
+            int tot = num1 * num2;
+            return tot;
+        }
+
+        static double Div2num(double num1, double num2)
+        {
+            double tot = num1 / num2;
+            return tot;
+        }
     }
 }
