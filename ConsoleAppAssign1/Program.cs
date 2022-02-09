@@ -13,7 +13,7 @@ namespace ConsoleAppAssign1
 
                 int assignmentSel = int.Parse(Console.ReadLine() ?? "0");
 
-                if (assignmentSel < 5)
+                if (assignmentSel < 5 && assignmentSel > 0)
                 {
                     MathOperation(assignmentSel);
                 }
@@ -23,8 +23,9 @@ namespace ConsoleAppAssign1
                         Console.WriteLine("Good bye!!!");
                 }
                 else 
-                { 
-                        Console.WriteLine("Invalid selection !!!");                
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Invalid selection !!!");                
                 }
                 Console.ResetColor();
                 Console.WriteLine("Press any key to continue !");
