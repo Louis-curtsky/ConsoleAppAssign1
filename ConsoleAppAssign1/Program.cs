@@ -13,7 +13,7 @@ namespace ConsoleAppAssign1
 
                 int assignmentSel = int.Parse(Console.ReadLine() ?? "0");
 
-                if (assignmentSel < 5 && assignmentSel > 0)
+                if (assignmentSel < 7 && assignmentSel > 0)
                 {
                     MathOperation(assignmentSel);
                 }
@@ -33,7 +33,8 @@ namespace ConsoleAppAssign1
                 Console.ReadKey();
                 Console.Clear();
             } while (keepGoing);
-        }// End of Main
+        }
+// -------------- End of Main --------------
 
         /* 
          * Math Operation. Obtain numbers from user
@@ -70,8 +71,16 @@ namespace ConsoleAppAssign1
                         Console.WriteLine("You are trying to divide by ZERO !!!");
                     }
                     break;
+                case 5:
+                    Console.WriteLine("Option 5 To show..");
+
+                    break;
+                case 6:
+                    Console.WriteLine("Option 6 Selected...");
+                    break;
             }
         }
+// -------------- Math Operation --------------
 
         static int UserInputNumber(string what)
         {
@@ -79,12 +88,14 @@ namespace ConsoleAppAssign1
             int number = Convert.ToInt32(inputed);
             return number;
         }
+// ---------- End of UserInputNumber ----------
 
         static string UserInputStr(string userinputstr)
         {
             Console.Write("Please enter " + userinputstr + ": ");
             return Console.ReadLine();
         }
+// ---------- End of UserInputStr ----------
 
         static void PrintMenu()
         {
@@ -96,29 +107,34 @@ namespace ConsoleAppAssign1
             Console.WriteLine("9: Exit program");
             Console.WriteLine("\nEnter you choice: ");
         }
+// ---------- End of PrintMenu ----------
 
         static int Add2num(int num1, int num2)
         {
             int tot = num1 + num2;
             return tot;
         }
+// ---------- End of End of Add2Num ----------
 
         static int Sub2num(int num1, int num2) 
         {
             int tot = num1 - num2;
             return tot;
         }
+// ---------- End of End of Sub2Num ----------
 
         static int Mul2num(int num1, int num2) 
         {
             int tot = num1 * num2;
             return tot;
         }
+// ---------- End of End of Mul2Num ----------
 
         static double Div2num(double num1, double num2)
         {
             double tot = num1 / num2;
             return tot;
         }
-    }
-}
+// ---------- End of End of Div2num ----------
+    }// End of Class
+}// End of NameSpace
