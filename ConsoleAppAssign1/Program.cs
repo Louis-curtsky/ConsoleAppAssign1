@@ -98,6 +98,7 @@ namespace ConsoleAppAssign1
                     break;
             }
         }
+        // -------------- Math Operation --------------
 
         private static void ListEx()
         {
@@ -109,6 +110,7 @@ namespace ConsoleAppAssign1
             }
             Console.WriteLine($"There are total {list.Count} in this list.");
         }
+        // -------------- ListEx() --------------
 
         private static void Exe7N8()
         {
@@ -117,6 +119,7 @@ namespace ConsoleAppAssign1
             Console.WriteLine($"The Area of {num1Dou} is: " + 2*Math.PI*num1Dou);
             Console.WriteLine($"The Volume of {num1Dou} is: " + (4*Math.PI*Math.Pow(num1Dou,3))/3);
         }
+        // -------------- Ex7N8() --------------
 
         private static double UserInputDouble(string Desc)
         {
@@ -135,8 +138,8 @@ namespace ConsoleAppAssign1
             }
             return numDou;
         }
+        // -------------- UserInputDouble() --------------
 
-        // -------------- Math Operation --------------
 
         static int UserInputNumber(string what)
         {
