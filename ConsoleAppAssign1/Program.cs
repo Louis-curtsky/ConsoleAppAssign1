@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleAppAssign1
 {
@@ -46,21 +47,29 @@ namespace ConsoleAppAssign1
 
         static void MathOperation(int selection) 
         {
-
-            int firstnum = UserInputNumber("Enter 1st number");
-            int secondnum = UserInputNumber("Enter 2nd number");
+                int firstnum = 0;
+                int secondnum = 0;
+                
             switch(selection)
             {
                 case 1:
+                    firstnum = UserInputNumber("Enter 1st number");
+                    secondnum = UserInputNumber("Enter 2nd number");
                     Console.WriteLine(firstnum + " + " + secondnum + " is = " + Add2num(firstnum, secondnum));
                     break;
                 case 2:
+                    firstnum = UserInputNumber("Enter 1st number");
+                    secondnum = UserInputNumber("Enter 2nd number");
                     Console.WriteLine(firstnum + " - " + secondnum + " is = " + Sub2num(firstnum, secondnum));
                     break;
                 case 3:
+                    firstnum = UserInputNumber("Enter 1st number");
+                    secondnum = UserInputNumber("Enter 2nd number");
                     Console.WriteLine(firstnum + " * " + secondnum + " is = " + Mul2num(firstnum, secondnum));
                     break;
                 case 4:
+                    firstnum = UserInputNumber("Enter 1st number");
+                    secondnum = UserInputNumber("Enter 2nd number");
                     if (secondnum > 0)
                     {
                         Console.WriteLine(firstnum + " / " + secondnum + " is = " + Div2num(firstnum, secondnum));
@@ -72,15 +81,62 @@ namespace ConsoleAppAssign1
                     }
                     break;
                 case 5:
-                    Console.WriteLine("Option 5 To show..");
-
+                    firstnum = UserInputNumber("Enter 1st number");
+                    secondnum= UserInputNumber("Enter 2nd number");
+                    var msg = firstnum > secondnum ? 
+                            $"{firstnum} is greater than {secondnum}"
+                            : $"{firstnum} is less than {secondnum}";
+                    Console.WriteLine($"{firstnum} % {secondnum} is = "+ firstnum % secondnum);
                     break;
                 case 6:
-                    Console.WriteLine("Option 6 Selected...");
+                    Console.WriteLine("--- Option 5 Area and Volume Computation --- ");
+                    Exe7N8();
+                    break;
+                case 7:
+                    Console.WriteLine("--- Option 6 List ---´\n");
+                    ListEx();
                     break;
             }
         }
-// -------------- Math Operation --------------
+
+        private static void ListEx()
+        {
+            List<int> list = new List<int>() { 2, 3, 7, 11 };
+            Console.WriteLine("List of Prime Numbers\n");
+            foreach (int prime in list)
+            {
+                Console.WriteLine($"Prime Number: {prime}");
+            }
+            Console.WriteLine($"There are total {list.Count} in this list.");
+        }
+
+        private static void Exe7N8()
+        {
+            double num1Dou = UserInputDouble("Radius");
+
+            Console.WriteLine($"The Area of {num1Dou} is: " + 2*Math.PI*num1Dou);
+            Console.WriteLine($"The Volume of {num1Dou} is: " + (4*Math.PI*Math.Pow(num1Dou,3))/3);
+        }
+
+        private static double UserInputDouble(string Desc)
+        {
+            double numDou = 0;
+            bool parseIndicator = false;
+
+            while (parseIndicator == false)
+            {
+                Console.Write($"Enter a {Desc} : ");
+                parseIndicator = double.TryParse(Console.ReadLine(), out numDou);
+
+                if (!parseIndicator)
+                {
+                    Console.WriteLine("Indicator shows " + parseIndicator + " so please enter a valid number");
+                }
+            }
+            return numDou;
+        }
+
+        // -------------- Math Operation --------------
 
         static int UserInputNumber(string what)
         {
@@ -104,8 +160,11 @@ namespace ConsoleAppAssign1
             Console.WriteLine("2: SUBTRACT Operation");
             Console.WriteLine("3: MULTIPLICATION Operation");
             Console.WriteLine("4: DIVISION Operation");
+            Console.WriteLine("5  Other Operators");
+            Console.WriteLine("6: Area and Volume Computation");
+            Console.WriteLine("7: List Excercise");
             Console.WriteLine("9: Exit program");
-            Console.WriteLine("\nEnter you choice: ");
+            Console.Write("\nEnter you choice: ");
         }
 // ---------- End of PrintMenu ----------
 
